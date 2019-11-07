@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="talk"
+        android:icon="@drawable/ic_adb_black_24dp"
+        android:id="@+id/menu_talk"
+        app:showAsAction="always" />
+
+    <item android:title="Search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:id="@+id/menu_search"
+        app:showAsAction="always" />
+
+
+    <item android:title="編輯訊息"
+        android:id="@+id/menu_edit"
+        app:showAsAction="never" />
+
+    <item android:title="聊天室排序"
+        android:id="@+id/menu_order"
+        app:showAsAction="never" />
+
+    <item android:title="全部標示已讀"
+        android:id="@+id/menu_allread"
+        app:showAsAction="never" />
+
+</menu>

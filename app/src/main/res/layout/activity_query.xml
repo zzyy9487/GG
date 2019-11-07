@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/queryall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QueryActivity">
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_Query"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:hint="Query"
+        android:paddingStart="15dp"
+        android:singleLine="true"
+        android:textSize="26sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginBottom="7dp"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toEndOf="@id/ed_Query"
+        app:layout_constraintBottom_toBottomOf="@id/ed_Query"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/keyrecordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Query"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/textViewKeyWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推薦關鍵字"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <view
+            android:id="@+id/swipe"
+            class="androidx.swiperefreshlayout.widget.SwipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewKeyWord"
+            app:layout_constraintBottom_toTopOf="@id/textViewRecord">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewKeyWord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewKeyWord"
+                tools:listitem="@layout/cell_keyword" />
+
+        </view>
+
+        <TextView
+            android:id="@+id/textViewRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最近搜尋"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swipe"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewRecord"
+            tools:listitem="@layout/cell_record" />
+
+        <TextView
+            android:id="@+id/textViewRecordSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:text="停用自動記錄功能"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewRecord" />
+
+        <TextView
+            android:id="@+id/textViewl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/l"
+            app:layout_constraintStart_toEndOf="@+id/textViewRecordSwitch"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecordSwitch"/>
+
+        <TextView
+            android:id="@+id/textViewDeleteAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deleteall"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewl"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewRecordSwitch"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tabfragLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Query"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:tabMode="scrollable"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_All"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Say"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Say" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_News"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Life" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Game"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friend" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tab_Service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

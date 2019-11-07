@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/friend"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="@string/friend" />
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_record_voice_over_black_24dp"
+        android:title="@string/chat" />
+
+    <item
+        android:id="@+id/say"
+        android:icon="@drawable/ic_announcement_black_24dp"
+        android:title="@string/say" />
+
+    <item
+        android:id="@+id/today"
+        android:icon="@drawable/ic_assignment_black_24dp"
+        android:title="@string/today" />
+
+    <item
+        android:id="@+id/money"
+        android:icon="@drawable/ic_vpn_key_black_24dp"
+        android:title="@string/money" />
+
+</menu>
